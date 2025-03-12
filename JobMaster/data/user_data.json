@@ -1,0 +1,108 @@
+{
+  "basic_info": {
+    "name": "Jane Smith",
+    "email": "jane.smith@example.com",
+    "phone": "123-456-7890",
+    "location": "San Francisco, CA",
+    "linkedin": "linkedin.com/in/janesmith",
+    "github": "github.com/janesmith",
+    "portfolio": "janesmith.dev"
+  },
+  "work_experience": [
+    {
+      "company": "Tech Innovations Inc.",
+      "title": "Senior Software Engineer",
+      "location": "San Francisco, CA",
+      "start_date": "2020-01",
+      "end_date": null,
+      "current": true,
+      "description": "Leading development of cloud-based applications and services.",
+      "achievements": [
+        "Reduced system latency by 40% through architecture improvements",
+        "Led a team of 5 engineers to deliver a major product feature",
+        "Implemented CI/CD pipeline reducing deployment time by 60%"
+      ],
+      "skills_used": [
+        "Python",
+        "AWS",
+        "Docker",
+        "Kubernetes",
+        "React"
+      ]
+    },
+    {
+      "company": "Tech Innovations Inc.",
+      "title": "Senior Software Engineer",
+      "location": "San Francisco, CA",
+      "start_date": "2020-01",
+      "end_date": null,
+      "current": true,
+      "description": "Leading development of cloud-based applications and services.",
+      "achievements": [
+        "Reduced system latency by 40% through architecture improvements",
+        "Led a team of 5 engineers to deliver a major product feature",
+        "Implemented CI/CD pipeline reducing deployment time by 60%"
+      ],
+      "skills_used": [
+        "Python",
+        "AWS",
+        "Docker",
+        "Kubernetes",
+        "React"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "University of California, Berkeley",
+      "degree": "Master of Science",
+      "field_of_study": "Computer Science",
+      "location": "Berkeley, CA",
+      "start_date": "2017-08",
+      "end_date": "2019-05",
+      "gpa": 3.9,
+      "achievements": [
+        "Graduated with honors",
+        "Research assistant in AI lab"
+      ]
+    },
+    {
+      "institution": "University of California, Berkeley",
+      "degree": "Master of Science",
+      "field_of_study": "Computer Science",
+      "location": "Berkeley, CA",
+      "start_date": "2017-08",
+      "end_date": "2019-05",
+      "gpa": 3.9,
+      "achievements": [
+        "Graduated with honors",
+        "Research assistant in AI lab"
+      ]
+    },
+    {
+      "institution": "University of California, Berkeley",
+      "degree": "Master of Science",
+      "field_of_study": "Computer Science",
+      "location": "Berkeley, CA",
+      "start_date": "2017-08",
+      "end_date": "2019-05",
+      "gpa": 3.9,
+      "achievements": [
+        "Graduated with honors",
+        "Research assistant in AI lab"
+      ]
+    }
+  ],
+  "skills": [
+    "NoSQL",
+    "React",
+    "AWS",
+    "Data Analysis",
+    "JavaScript",
+    "Python",
+    "Docker",
+    "Node.js",
+    "SQL",
+    "Machine Learning"
+  ]
+}

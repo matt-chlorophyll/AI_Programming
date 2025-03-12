@@ -1,3 +1,4 @@
 yt-dlp
 openai-whisper
-torch --index-url https://download.pytorch.org/whl/cu118 
+torch --index-url https://download.pytorch.org/whl/cu118
+tqdm
