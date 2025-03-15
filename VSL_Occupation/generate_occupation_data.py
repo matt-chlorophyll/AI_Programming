@@ -77,6 +77,7 @@ class OccupationDataGenerator:
         Description: {description}
         
         Please provide a comprehensive list of potential drivers of claims for this occupation. Format your response as a bulleted list with each point starting with an asterisk (*).
+        Limit the response to 5 bullet points.
         
         Here's an example of the format I'm looking for:
         
