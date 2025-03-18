@@ -5,7 +5,7 @@ import glob
 from datetime import datetime
 from generate_occupation_data import OccupationDataGenerator
 
-def batch_process(input_dir, output_dir, api_key, model='gpt-4', sample_file='VSL Data for ChatGPT v2.xlsx'):
+def batch_process(input_dir, output_dir, api_key, model='gpt-4o', sample_file='VSL Data for ChatGPT v2.xlsx'):
     """
     Process all Excel files in the input directory and save results to the output directory.
     
@@ -25,6 +25,13 @@ def batch_process(input_dir, output_dir, api_key, model='gpt-4', sample_file='VS
         model=model,
         sample_file=sample_file
     )
+    
+    # Check if the generator will include class action descriptions
+    has_class_action = generator.has_class_action_column
+    if has_class_action:
+        print("Class Action Description column found in sample file. This information will be generated.")
+    else:
+        print("Class Action Description column not found in sample file. This information will not be generated.")
     
     # Get all Excel files in the input directory
     input_files = glob.glob(os.path.join(input_dir, '*.xlsx'))
@@ -62,6 +69,13 @@ def batch_process(input_dir, output_dir, api_key, model='gpt-4', sample_file='VS
             result_df.to_excel(output_file, index=False)
             print(f"Results saved to {output_file}")
             
+            # Print column information
+            print(f"Generated columns: {', '.join(result_df.columns)}")
+            if has_class_action:
+                non_empty_class_actions = result_df['Class Action Description'].notna().sum()
+                total_rows = len(result_df)
+                print(f"Class action information found for {non_empty_class_actions} out of {total_rows} occupations ({(non_empty_class_actions/total_rows)*100:.1f}%)")
+            
         except Exception as e:
             print(f"Error processing {file_name}: {str(e)}")
 
@@ -70,7 +84,7 @@ def main():
     parser.add_argument('--input_dir', type=str, help='Directory containing input Excel files', default='input')
     parser.add_argument('--output_dir', type=str, help='Directory to save output Excel files', default='output')
     parser.add_argument('--api_key', type=str, help='OpenAI API key', default=None)
-    parser.add_argument('--model', type=str, help='OpenAI model to use', default='gpt-4')
+    parser.add_argument('--model', type=str, help='OpenAI model to use', default='gpt-4o')
     parser.add_argument('--sample', type=str, help='Path to sample data file for reference', default='VSL Data for ChatGPT v2.xlsx')
     
     args = parser.parse_args()

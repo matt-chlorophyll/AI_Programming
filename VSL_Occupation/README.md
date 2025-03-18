@@ -5,6 +5,7 @@ This project uses the OpenAI API to generate risk assessment information for dif
 1. **Drivers of Claims**: Key risk factors and liability exposures associated with the occupation.
 2. **Significant International Losses**: Examples of notable liability cases from around the world (excluding Australia).
 3. **Significant Australian Losses**: Examples of notable liability cases specifically from Australia.
+4. **Class Action Description**: Information about class actions in Australia related to the occupation (if available).
 
 ## Purpose
 
@@ -65,7 +66,7 @@ python generate_occupation_data.py --output generated_results.xlsx
 
 ### Additional Options
 
-- `--model`: Specify which OpenAI model to use (default: 'gpt-4')
+- `--model`: Specify which OpenAI model to use (default: 'gpt-4o')
 - `--sample`: Path to a sample data file for reference (default: 'VSL Data for ChatGPT v2.xlsx')
 
 ## Sample Files
@@ -82,11 +83,13 @@ The script generates an Excel file with the following columns:
 - `Drivers`: Potential drivers of claims for the occupation
 - `Significant Losses International`: Examples of significant international losses
 - `Significant Losses Australian`: Examples of significant Australian losses
+- `Class Action Description`: Information about class actions in Australia related to the occupation (if available)
 
-Each entry in the `Drivers`, `Significant Losses International`, and `Significant Losses Australian` columns is formatted as a bulleted list with each point starting with an asterisk (*).
+Each entry in the `Drivers`, `Significant Losses International`, `Significant Losses Australian`, and `Class Action Description` columns is formatted as a bulleted list with each point starting with an asterisk (*). If no class action information is found for an occupation, the corresponding cell will be left blank.
 
 ## Notes
 
 - The script includes delays between API calls to avoid rate limiting.
 - The generated information is based on the OpenAI model's knowledge and may need to be reviewed for accuracy.
 - The quality of the generated information depends on the specificity of the occupation description. 
+- The class action information is specifically focused on Australian cases and will be left blank if no relevant information is found. 

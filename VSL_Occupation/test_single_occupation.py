@@ -28,7 +28,7 @@ def test_single_occupation():
     description = 'Hospitals'
     
     print(f"Testing with occupation: {description} (ANZSIC: {anzsic_code})")
-    print("This will make 3 API calls to OpenAI. Please wait...")
+    print("This will make multiple API calls to OpenAI. Please wait...")
     
     # Generate data for the occupation
     result = generator.generate_all_data(anzsic_code, description)
@@ -44,6 +44,14 @@ def test_single_occupation():
     
     print("\nSIGNIFICANT LOSSES AUSTRALIAN:")
     print(result['Significant Losses Australian'])
+    
+    # Print class action description if available
+    if 'Class Action Description' in result:
+        print("\nCLASS ACTION DESCRIPTION:")
+        if result['Class Action Description']:
+            print(result['Class Action Description'])
+        else:
+            print("No class action information found for this occupation.")
     
     # Save to Excel (optional)
     df = pd.DataFrame([result])

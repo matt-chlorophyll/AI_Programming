@@ -29,6 +29,17 @@ You can set up your OpenAI API key in one of two ways:
 2. **Command Line Argument**:
    Pass your API key directly to the script using the `--api_key` argument (see examples below).
 
+## Generated Information
+
+The generator creates the following information for each occupation:
+
+1. **Drivers of Claims**: Key risk factors and liability exposures associated with the occupation.
+2. **Significant International Losses**: Examples of notable liability cases from around the world (excluding Australia).
+3. **Significant Australian Losses**: Examples of notable liability cases specifically from Australia.
+4. **Class Action Description**: Information about class actions in Australia related to the occupation (if available).
+
+Note that if no class action information is found for an occupation, the corresponding cell will be left blank in the output.
+
 ## Usage Scenarios
 
 ### Scenario 1: Generate Data for a Single Occupation (Manual Input)
@@ -51,7 +62,7 @@ You can use the provided test script to generate data for a predefined occupatio
 python test_single_occupation.py
 ```
 
-This will generate data for the "Hospitals" occupation and save it to `test_result.xlsx`.
+This will generate data for the "Hospitals" occupation, including class action information if available, and save it to `test_result.xlsx`.
 
 ### Scenario 3: Generate Data for Multiple Occupations (Using an Input File)
 
@@ -92,7 +103,7 @@ python batch_process.py --input_dir my_inputs --output_dir my_results
 
 ### Changing the OpenAI Model
 
-By default, the scripts use the `gpt-4` model. You can change this to `gpt-3.5-turbo` for faster, cheaper results:
+By default, the scripts use the `gpt-4o` model. You can change this to other models like `gpt-3.5-turbo` for faster, cheaper results:
 
 ```bash
 python generate_occupation_data.py --model gpt-3.5-turbo
@@ -105,6 +116,8 @@ If you have a different sample file with the desired format:
 ```bash
 python generate_occupation_data.py --sample my_sample_file.xlsx
 ```
+
+Note that if your sample file includes a "Class Action Description" column with non-null values, the generator will use it as a reference for generating class action information. If the column doesn't exist in your sample file, the generator will not produce class action information.
 
 ## Troubleshooting
 
@@ -133,6 +146,7 @@ If your input file is missing required columns:
 - `sample_input.py`: Script for generating a sample input file
 - `batch_process.py`: Script for batch processing multiple input files
 - `analyze_format.py`: Script for analyzing the format of existing data
+- `analyze_class_action.py`: Script for analyzing the format of class action descriptions
 - `README.md`: Project overview and documentation
 - `USAGE_GUIDE.md`: This usage guide
 
@@ -148,4 +162,4 @@ If your input file is missing required columns:
    python generate_occupation_data.py --input sample_input.xlsx --output results.xlsx
    ```
 
-3. Review the results in `results.xlsx` 
+3. Review the results in `results.xlsx` including any class action information that was found 
